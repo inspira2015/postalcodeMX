@@ -41,10 +41,24 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+
+
+
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
+$db['default']['username'] = 'timxl9_cp';
 $db['default']['password'] = 'hunter';
-$db['default']['database'] = 'postalcodes_mx';
+$db['default']['database'] = 'timxl9_postalcodes_mx';
+
+$temp = explode(".",$_SERVER['SERVER_ADDR']);
+
+if($temp[1]==0 || $temp[1]==168)
+{
+	$db['default']['username'] = 'root';
+	$db['default']['database'] = 'postalcodes_mx';
+}
+
+
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
