@@ -28,31 +28,41 @@ class Postalcodes_Dao extends Abstractclass_basic_model
 		return $query;
 	}
 
-	public function getPostalCodesLike($code,$select =FALSE){
+	public function getPostalCodesLike(array $query_data,$select =FALSE){
 		if($select){
 			$this->select = $select;
 		}
 		$this->db->select($this->select);
 		$this->db->from($this::DB_TABLE);
-		$this->db->like('codigo_postal', $code);
-		$this->db->limit(150);
+		$this->db->like('codigo_postal', $query_data[0],$query_data[1]);
+		$this->db->limit(250);
 		$query = $this->db->get();
 		return $query;
 	}
-
 
 	public function getPostalCodesByHoodState(array $query_data ,$select =FALSE){
 		if($select){
 			$this->select = $select;
 		}
+
 		$this->db->select($this->select);
 		$this->db->from($this::DB_TABLE);
-		$this->db->like('asentamiento', $query_data[0]);
+		$this->db->like('asentamiento', $query_data[0], $query_data[2]);
 		$this->db->where('codigo_estado', $query_data[1]);
-		$this->db->limit(150);
+		$this->db->limit(250);
 		$query = $this->db->get();
 		return $query;
 	}
 
-
+	public function getPostalCodesByStateCode($code,$select =FALSE){
+		if($select){
+			$this->select = $select;
+		}
+		$this->db->select($this->select);
+		$this->db->from($this::DB_TABLE);
+		$this->db->where('codigo_estado', $code);
+		$query = $this->db->get();
+		return $query;
+	}
+	
 }

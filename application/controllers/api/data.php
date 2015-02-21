@@ -34,11 +34,13 @@ class Data extends REST_Controller
     public function postalcode_get(){
 
         $postal_code = $this->get('code');
+        $search = @$this->get('search');
+        $search = (isset($search)==TRUE)  ? $search: 'both';
 
         if(!$postal_code){
         	$this->response(NULL, 400);
         }
-        $query  = $this->postalcodes->getPostalCodesLike($postal_code);
+        $query  = $this->postalcodes->getPostalCodesLike(array($postal_code,$search));
         $query2 = $query->result_array();
     	
         if($query2)
@@ -67,17 +69,41 @@ class Data extends REST_Controller
         }
     }
 
+
+     public function postalcodes_statecode_get()
+    {
+        $state_code = $this->get('statecode');
+
+        if(!$state_code){
+            $this->response(NULL, 400);
+        }
+
+        $query  = $this->postalcodes->getPostalCodesByStateCode($state_code);
+        $query2 = $query->result_array();
+
+        if($query2)
+        {
+            $this->response($query2, 200); // 200 being the HTTP response code
+        }
+        else
+        {
+            $this->response(array('error' => 'Couldn\'t find any Postal Codes!'), 404);
+        }
+    }
+
     //Get Mex postal codes for an state code and neightboorhood
     public function nbhd_state_get()
     {
         $hood = $this->get('nbhd');
+        $search = @$this->get('search');
+        $search = (isset($search)==TRUE)  ? $search: 'both';
         $statecode = $this->get('statecode');//01/31
 
         if(!$hood || !$statecode){
             $this->response(NULL, 400);
         }
 
-        $query  = $this->postalcodes->getPostalCodesByHoodState(array($hood,$statecode));
+        $query  = $this->postalcodes->getPostalCodesByHoodState(array($hood,$statecode,$search));
         $query2 = $query->result_array();
         if($query2)
         {

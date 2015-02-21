@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Welcome to Mexican Postal Codes API</title>
 
 <style type="text/css">
 
@@ -51,13 +51,14 @@ code {
 <p>This is a free service</p>
 
 <ul>
-	<li><a href="<?php echo site_url('api/data/postalcodes');?>">5000 POSTAL CODES</a> - defaulting to XML</li>
-	<li><a href="<?php echo site_url('api/data/postalcode/code/21240');?>">Postal Code  like 21240</a> - defaulting to XML</li>
-	<li><a href="<?php echo site_url('api/data/postalcode/code/2124/format/json');?>">Postal Code like 21240</a> - get it in JSON</li>
-	<li><a id="ajax" href="<?php echo site_url('api/data/postalcodes/format/json');?>">5000 Postal Codes</a> - get it in JSON (AJAX request)</li>
+	<li><a href="<?php echo site_url('api/data/postalcode/code/21240');?>">Postal Code  like 21240 search option both/after/before</a> - defaulting to XML</li>
+	<li><a href="<?php echo site_url('api/data/postalcode/code/2124/format/json');?>">Postal Code like 21240 search option both/after/before</a> - get it in JSON</li>
+	<li><a href="<?php echo site_url('api/data/nbhd_state/nbhd/vista/search/both/statecode/02/format/json');?>">Postal Code by neightboorhood and State code. search option both/after/before </a> - get it in JSON</li>
+	<li><a href="<?php echo site_url('api/data/nbhd_state/nbhd/vista/search/both/statecode/02/format/xml');?>">Postal Code by neightboorhood and State code. search option both/after/before </a> - get it in XML</li>
 
+	<li><a href="<?php echo site_url('api/data/postalcodes_statecode/statecode/02/format/json');?>">Postal Code by State code.</a> - get it in JSON</li>
+	<li><a href="<?php echo site_url('api/data/postalcodes_statecode/statecode/02/format/xml');?>">Postal Code by State code.</a> - get it in XML</li>
 
-	<li><a href="<?php echo site_url('api/data/nbhd_state/nbhd/vistha/statecode/02/format/json');?>">Postal code by neightboorhood and State code </a> - get it in JSON</li>
 
 </ul>
 

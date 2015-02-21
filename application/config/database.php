@@ -57,8 +57,6 @@ if($temp[1]==0 || $temp[1]==168)
 	$db['default']['database'] = 'postalcodes_mx';
 }
 
-
-
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
