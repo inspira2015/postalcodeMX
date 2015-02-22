@@ -71,7 +71,6 @@ class Postalcodes_Dao extends Abstractclass_basic_model
 		$this->db->select('codigo_estado,estado');
 		$this->db->from($this::DB_TABLE);
 		$this->db->order_by("codigo_estado");
-
 		$query = $this->db->get();
 		return $query;
 	}
