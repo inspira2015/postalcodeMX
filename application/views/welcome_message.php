@@ -57,6 +57,9 @@ code {
 	<li><a href="<?php echo site_url('api/data/nbhd_state/nbhd/vista/search/both/statecode/02/format/xml');?>">Postal Code by neightboorhood and State code. search option both/after/before </a> - get it in XML</li>
 	<li><a href="<?php echo site_url('api/data/postalcodes_statecode/statecode/02/format/json');?>">Postal Code by State code.</a> - get it in JSON</li>
 	<li><a href="<?php echo site_url('api/data/postalcodes_statecode/statecode/02/format/xml');?>">Postal Code by State code.</a> - get it in XML</li>
+	<li><a href="<?php echo site_url('api/data/states_codes/format/xml');?>">States Code/State Names of Mexico.</a> - get it in XML</li>
+	<li><a href="<?php echo site_url('api/data/states_codes/format/json');?>">States Code/State Names of Mexico.</a> - get it in JSON</li>
+
 </ul>
 
 

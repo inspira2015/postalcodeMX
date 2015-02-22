@@ -37,7 +37,8 @@ class Data extends REST_Controller
         $search = @$this->get('search');
         $search = (isset($search)==TRUE)  ? $search: 'both';
 
-        if(!$postal_code){
+        if(!$postal_code)
+        {
         	$this->response(NULL, 400);
         }
         $query  = $this->postalcodes->getPostalCodesLike(array($postal_code,$search));
@@ -74,7 +75,8 @@ class Data extends REST_Controller
     {
         $state_code = $this->get('statecode');
 
-        if(!$state_code){
+        if(!$state_code)
+        {
             $this->response(NULL, 400);
         }
 
@@ -99,7 +101,8 @@ class Data extends REST_Controller
         $search = (isset($search)==TRUE)  ? $search: 'both';
         $statecode = $this->get('statecode');//01/31
 
-        if(!$hood || !$statecode){
+        if(!$hood || !$statecode)
+        {
             $this->response(NULL, 400);
         }
 
@@ -116,6 +119,23 @@ class Data extends REST_Controller
     }
 
 
+
+    //Get Mex postal states codes
+    public function states_codes_get()
+    {
+        
+
+        $query  = $this->postalcodes->getStatesAndCodes();
+        $query2 = $query->result_array();
+        if($query2)
+        {
+            $this->response($query2, 200); // 200 being the HTTP response code
+        }
+        else
+        {
+            $this->response(array('error' => 'Couldn\'t find any Postal Codes!'), 404);
+        }
+    }
 
 
 }
