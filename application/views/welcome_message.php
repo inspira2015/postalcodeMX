@@ -46,7 +46,7 @@ code {
 <body>
 
 
-<h1>Welcome Mexican postal codes API!</h1>
+<h1>Welcome to a Public Mexican postal codes API!</h1>
 
 <p>This is a free service</p>
 
@@ -55,39 +55,17 @@ code {
 	<li><a href="<?php echo site_url('api/data/postalcode/code/2124/format/json');?>">Postal Code like 21240 search option both/after/before</a> - get it in JSON</li>
 	<li><a href="<?php echo site_url('api/data/nbhd_state/nbhd/vista/search/both/statecode/02/format/json');?>">Postal Code by neightboorhood and State code. search option both/after/before </a> - get it in JSON</li>
 	<li><a href="<?php echo site_url('api/data/nbhd_state/nbhd/vista/search/both/statecode/02/format/xml');?>">Postal Code by neightboorhood and State code. search option both/after/before </a> - get it in XML</li>
-
 	<li><a href="<?php echo site_url('api/data/postalcodes_statecode/statecode/02/format/json');?>">Postal Code by State code.</a> - get it in JSON</li>
 	<li><a href="<?php echo site_url('api/data/postalcodes_statecode/statecode/02/format/xml');?>">Postal Code by State code.</a> - get it in XML</li>
-
-
 </ul>
+
+
+<p><br />Brought to you by <strong>Daniel Gomez</strong> -
+<a href="mailto:daniel.gm78@gmail.com">Email Me</a></p>
 
 
 <p><br />Page rendered in {elapsed_time} seconds</p>
 
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(function(){
-	// Bind a click event to the 'ajax' object id
-	$("#ajax").bind("click", function( evt ){
-		// Javascript needs totake over. So stop the browser from redirecting the page
-		evt.preventDefault();
-		// AJAX request to get the data
-		$.ajax({
-			// URL from the link that was clicked on
-			url: $(this).attr("href"),
-			// Success function. the 'data' parameter is an array of objects that can be looped over
-			success: function(data, textStatus, jqXHR){
-				alert('Successful AJAX request!');
-			}, 
-			// Failed to load request. This could be caused by any number of problems like server issues, bad links, etc. 
-			error: function(jqXHR, textStatus, errorThrown){
-				alert('Oh no! A problem with the AJAX request!');
-			}
-		});
-	});
-});
-</script>
-
 </body>
 </html>
